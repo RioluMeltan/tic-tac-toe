@@ -79,14 +79,12 @@ class Application():
                     x, y = pygame.mouse.get_pos()
                     if start_rect.collidepoint(x, y):
                         action = 'play'
-                        pygame.mixer.music.stop()
                         for i in range(255):
                             self.screen.fill((0, 0, i))
                             pygame.display.flip()
                         return
                     elif settings_rect.collidepoint(x, y):
                         action = 'settings'
-                        pygame.mixer.music.stop()
                         return
                     elif stats_rect.collidepoint(x, y):
                         stat_list = ['You currently have a score of ']
@@ -108,7 +106,6 @@ class Application():
                         pyautogui.alert(text = f'{stat_list}\n\nYou\'ve played and won {match_num} matches.\n\n{stat_list_2}', title = 'Stats', button = 'OK')
                     elif tutorial_rect.collidepoint(x, y):
                         action = 'tutorial'
-                        pygame.mixer.music.stop()
                         for i in range(255):
                             self.screen.fill((0, 0, i))
                             pygame.display.flip()
@@ -319,7 +316,6 @@ class Application():
             mouse_x, mouse_y = pygame.mouse.get_pos()
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                    pygame.mixer.music.stop()
                     for i in range(255):
                         self.screen.fill((0, 0, 255 - i))
                         pygame.display.flip()
@@ -373,7 +369,6 @@ class Application():
                 for i in range(255):
                     self.screen.fill((0, 0, 255 - i))
                     pygame.display.flip()
-                pygame.mixer.music.stop()
                 return
             elif (self.map[0] == 'o' and self.map[1] == 'o' and self.map[2] == 'o') or (self.map[0] == 'o' and self.map[4] == 'o' and self.map[8] == 'o') or (self.map[2] == 'o' and self.map[4] == 'o' and self.map[6] == 'o') or (self.map[3] == 'o' and self.map[4] == 'o' and self.map[5] == 'o') or (self.map[6] == 'o' and self.map[7] == 'o' and self.map[8] == 'o') or (self.map[0] == 'o' and self.map[3] == 'o' and self.map[6] == 'o') or (self.map[1] == 'o' and self.map[4] == 'o' and self.map[7] == 'o') or (self.map[2] == 'o' and self.map[5] == 'o' and self.map[8] == 'o'):
                 blit_tacs()
@@ -382,13 +377,11 @@ class Application():
                 for i in range(255):
                     self.screen.fill((0, 0, 255 - i))
                     pygame.display.flip()
-                pygame.mixer.music.stop()
                 return
             if self.map[0] != '' and self.map[1] != '' and self.map[2] != '' and self.map[3] != '' and self.map[4] != '' and self.map[5] != '' and self.map[6] != '' and self.map[7] != '' and self.map[8] != '':
                 blit_tacs()
                 pygame.display.flip()
                 pyautogui.alert(text = 'It\'s a tie! Press OK to close this text box and exit to the main menu.', title = 'Tie', button = 'OK')
-                pygame.mixer.music.stop()
                 for i in range(255):
                     self.screen.fill((0, 0, 255 - i))
                     pygame.display.flip()
