@@ -356,7 +356,15 @@ class Application():
                     self.map = run_logic(8, self.map)
                 elif (event.type == pygame.KEYDOWN and event.key == pygame.K_9 and (self.map[8] == 'o' or self.map[8] == 'x')) or (event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and (self.map[8] == 'o' or self.map[8] == 'x') and empty_9_rect.collidepoint(mouse_x, mouse_y)):
                     pyautogui.alert(text = 'The ninth spot has already been filled! Please choose another spot to place your X.', title = 'Spot Already Filled', button = 'OK')
-            if (self.map[0] == 'x' and self.map[1] == 'x' and self.map[2] == 'x') or (self.map[0] == 'x' and self.map[4] == 'x' and self.map[8] == 'x') or (self.map[2] == 'x' and self.map[4] == 'x' and self.map[6] == 'x') or (self.map[3] == 'x' and self.map[4] == 'x' and self.map[5] == 'x') or (self.map[6] == 'x' and self.map[7] == 'x' and self.map[8] == 'x') or (self.map[0] == 'x' and self.map[3] == 'x' and self.map[6] == 'x') or (self.map[1] == 'x' and self.map[4] == 'x' and self.map[7] == 'x') or (self.map[2] == 'x' and self.map[5] == 'x' and self.map[8] == 'x'):
+            if ((self.map[0] == 'x' and self.map[1] == 'x' and self.map[2] == 'x') or (self.map[0] == 'x' and self.map[4] == 'x' and self.map[8] == 'x') or (self.map[2] == 'x' and self.map[4] == 'x' and self.map[6] == 'x') or (self.map[3] == 'x' and self.map[4] == 'x' and self.map[5] == 'x') or (self.map[6] == 'x' and self.map[7] == 'x' and self.map[8] == 'x') or (self.map[0] == 'x' and self.map[3] == 'x' and self.map[6] == 'x') or (self.map[1] == 'x' and self.map[4] == 'x' and self.map[7] == 'x') or (self.map[2] == 'x' and self.map[5] == 'x' and self.map[8] == 'x')) and ((self.map[0] == 'o' and self.map[1] == 'o' and self.map[2] == 'o') or (self.map[0] == 'o' and self.map[4] == 'o' and self.map[8] == 'o') or (self.map[2] == 'o' and self.map[4] == 'o' and self.map[6] == 'o') or (self.map[3] == 'o' and self.map[4] == 'o' and self.map[5] == 'o') or (self.map[6] == 'o' and self.map[7] == 'o' and self.map[8] == 'o') or (self.map[0] == 'o' and self.map[3] == 'o' and self.map[6] == 'o') or (self.map[1] == 'o' and self.map[4] == 'o' and self.map[7] == 'o') or (self.map[2] == 'o' and self.map[5] == 'o' and self.map[8] == 'o')):
+                blit_tacs()
+                pygame.display.flip()
+                pyautogui.alert(text = 'It\'s a tie! Press OK to close this text box and exit to the main menu.', title = 'Tie', button = 'OK')
+                for i in range(255):
+                    self.screen.fill((0, 0, 255 - i))
+                    pygame.display.flip()
+                return
+            elif (self.map[0] == 'x' and self.map[1] == 'x' and self.map[2] == 'x') or (self.map[0] == 'x' and self.map[4] == 'x' and self.map[8] == 'x') or (self.map[2] == 'x' and self.map[4] == 'x' and self.map[6] == 'x') or (self.map[3] == 'x' and self.map[4] == 'x' and self.map[5] == 'x') or (self.map[6] == 'x' and self.map[7] == 'x' and self.map[8] == 'x') or (self.map[0] == 'x' and self.map[3] == 'x' and self.map[6] == 'x') or (self.map[1] == 'x' and self.map[4] == 'x' and self.map[7] == 'x') or (self.map[2] == 'x' and self.map[5] == 'x' and self.map[8] == 'x'):
                 end_time = time.time()
                 result_score = round(start_time - end_time) * 10 + random.randint(500, 1000)
                 if result_score < 0:
