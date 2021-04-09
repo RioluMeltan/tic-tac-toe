@@ -9,6 +9,11 @@ class Application():
         global thousand_miles_travelled
         self.map = ['', '', '', '', '', '', '', '', '']
         self.screen = pygame.display.set_mode((1920, 1080))
+        self.icon = pygame.image.load(os.path.join('tic_tac_toe_data', 'icon.png'))
+        pygame.display.set_caption('Electrified Tic-Tac-Toe')
+        pygame.event.pump()
+        pygame.display.set_icon(self.icon)
+        pygame.event.pump()
         file = open(os.path.join('tic_tac_toe_data', 'settings_and_data.txt'), 'r+')
         data_and_settings = file.read().split('\n')
         score = int(data_and_settings[1])
