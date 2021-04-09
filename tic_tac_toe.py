@@ -64,7 +64,7 @@ class Application():
             start_rect.width, start_rect.height, start_rect.centerx, start_rect.centery = 300, 100, 200, 100
             settings_rect.width, settings_rect.height, settings_rect.centerx, settings_rect.centery = 300, 100, 1720, 100
             stats_rect.width, stats_rect.height, stats_rect.centerx, stats_rect.centery = 260, 100, 960, 250
-            tutorial_rect.width, tutorial_rect.height, tutorial_rect.centerx, tutorial_rect.centery = 100, 200, 1010, 700
+            tutorial_rect.width, tutorial_rect.height, tutorial_rect.centerx, tutorial_rect.centery = 100, 200, 960, 700
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                     for i in range(255):
